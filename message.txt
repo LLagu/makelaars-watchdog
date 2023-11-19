@@ -1,0 +1,1 @@
+Edit this file to receive what you write as a message when a new property is discovered.

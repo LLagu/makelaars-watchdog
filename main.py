@@ -4,6 +4,8 @@ from libraries.file_management import *
 
 def main():
 
+    user_message = loadFileContent("message.txt")
+
     #initizalize urls and class names
     funda_url = "https://www.funda.nl/zoeken/huur?selected_area=%5B%22groningen%22%5D&price=%22900-1500%22&sort=%22date_down%22&search_result=1"
     funda_base_url = "www.funda.nl"
@@ -42,12 +44,12 @@ def main():
 
     #start the loop
     while True:
-        funda_old_res = ParsePage(funda_url, funda_base_url, "funda test", funda_old_res, funda_class_name, "a")
-        rotsvast_old_res = ParsePage(rotsvast_url, rotsvast_base_url, "rotsvast test", rotsvast_old_res, rotsvast_class_name, "a")
-        househunting_old_res = ParsePage(househunting_url, househunting_base_url, "househunting test", househunting_old_res, househunting_class_name, "li")
-        etd_wonen_old_res = ParsePage(etd_url, etd_base_url, "123wonen test", etd_wonen_old_res, etd_wonen_class_name, "a")
-        tuitman_old_res = ParsePage(tuitman_url, tuitman_base_url, "tuitman test", tuitman_old_res, tuitman_class_name, "a")
-        vdmeulen_old_res = ParsePage(vdmeulen_url, vdmeulen_base_url, "van der meulen test", vdmeulen_old_res, vdmeulen_class_name, "a")
+        funda_old_res = ParsePage(funda_url, funda_base_url, user_message, funda_old_res, funda_class_name, "a")
+        rotsvast_old_res = ParsePage(rotsvast_url, rotsvast_base_url, user_message, rotsvast_old_res, rotsvast_class_name, "a")
+        househunting_old_res = ParsePage(househunting_url, househunting_base_url, user_message, househunting_old_res, househunting_class_name, "li")
+        etd_wonen_old_res = ParsePage(etd_url, etd_base_url, user_message, etd_wonen_old_res, etd_wonen_class_name, "a")
+        tuitman_old_res = ParsePage(tuitman_url, tuitman_base_url, user_message, tuitman_old_res, tuitman_class_name, "a")
+        vdmeulen_old_res = ParsePage(vdmeulen_url, vdmeulen_base_url, user_message, vdmeulen_old_res, vdmeulen_class_name, "a")
 if __name__ == '__main__':
     main()
 
