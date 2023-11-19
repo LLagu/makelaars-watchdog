@@ -27,34 +27,41 @@ You can use the existing websites as a guideline but in general you in `main.py`
 1. Call `GetPageSource()` with your website url and the class name of the closest element that contains the href.
 For example if your website has the properties listed as:
 
-`<h1>List of Links</h1>
+```
+<h1>List of Links</h1>
 
 <ul>
     <li class="list-item"><a href="https://example.com/apartment1">Link 1</a></li>
     <li class="list-item"><a href="https://example.com/apartment2">Link 2</a></li>
     <li class="list-item"><a href="https://example.com/apartment3">Link 3</a></li>
-</ul>`
+</ul>
+```
 
 you want to call 
 `GetPageSource("https://example.com/searchURL", "list-item")`
 
 or if `a` has a class:
+```
 <ul>
     <li class="list-item"><a class = "abc" href="https://example.com/apartment1">Link 1</a></li>
     <li class="list-item"><a class = "abc" href="https://example.com/apartment2">Link 2</a></li>
     <li class="list-item"><a class = "abc" href="https://example.com/apartment3">Link 3</a></li>
-</ul>`
-`GetPageSource("https://example.com/searchURL", "abc")`
+</ul>
+```
+then `GetPageSource("https://example.com/searchURL", "abc")`
 
 2. Call `ParsePage()` with the following parameters:
-    - `p_userUrl`               your website site url       example: "https://example.com/searchURL"
-    - `p_baseUrl`               for logging purposes        example: "example.com"       
-    - `p_messageToTheBroker`    specified in `message.txt`  example: "Hallo, ik zou deze te dure kast graag snel willen zien."
-    - 'p_old_page_source'       GetPageSource() output      example: user_website_old_source where user_website_old_source = GetPageSource(...)
-    - 'p_className'             see previous step           example: "list-item"     
-    - `p_tag`                   tag where teh href is       example: "a"
+    | Parameter   | Description  | Example      |
+    |-------------|--------------|--------------|
+    | `p_userUrl`               | Your website site url      | "https://example.com/searchURL"     |
+    | `p_baseUrl`               | For logging purposes       | "example.com"      |
+    | `p_messageToTheBroker`    | Specified in `message.txt` | "Hallo, ik zou deze te dure kast graag snel willen zien."     |
+    | `p_old_page_source`       | `GetPageSource()` output   | user_website_old_source where user_website_old_source = GetPageSource(...)     |
+    | `p_className`             | See previous step          | "list-item"       |
+    | `p_tag`                   | Tag of where teh href is   | "a"     |
+   
 
-3. Run with `python3 main.py`
+4. Run with `python3 main.py`
 
-4. Profit (???)
+5. Profit (???)
   
