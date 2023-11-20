@@ -29,11 +29,15 @@ For example if your website has the properties listed as:
 
 ```
 <h1>List of Links</h1>
+```
+<h1>List of Links</h1>
 
 <ul>
     <li class="list-item"><a href="https://example.com/apartment1">Link 1</a></li>
     <li class="list-item"><a href="https://example.com/apartment2">Link 2</a></li>
     <li class="list-item"><a href="https://example.com/apartment3">Link 3</a></li>
+</ul>
+```
 </ul>
 ```
 
@@ -42,6 +46,7 @@ you want to call
 
 or if `a` has a class:
 ```
+```
 <ul>
     <li class="list-item"><a class = "abc" href="https://example.com/apartment1">Link 1</a></li>
     <li class="list-item"><a class = "abc" href="https://example.com/apartment2">Link 2</a></li>
@@ -49,19 +54,22 @@ or if `a` has a class:
 </ul>
 ```
 then `GetPageSource("https://example.com/searchURL", "abc")`
+</ul>
+```
+then `GetPageSource("https://example.com/searchURL", "abc")`
 
 2. Call `ParsePage()` with the following parameters:
     | Parameter   | Description  | Example      |
     |-------------|--------------|--------------|
-    | `p_userUrl`               | Your website site url      | "https://example.com/searchURL"     |
-    | `p_baseUrl`               | For logging purposes       | "example.com"      |
-    | `p_messageToTheBroker`    | Specified in `message.txt` | "Hallo, ik zou deze te dure kast graag snel willen zien."     |
-    | `p_old_page_source`       | `GetPageSource()` output   | user_website_old_source where user_website_old_source = GetPageSource(...)     |
-    | `p_className`             | See previous step          | "list-item"       |
-    | `p_tag`                   | Tag of where teh href is   | "a"     |
+    | `p_userUrl`               | Your website site url         | "https://example.com/searchURL"     |
+    | `p_baseUrl`               | For logging purposes          | "www.example.com"      |
+    | `p_useBaseUrl`            | Bool. Prepending the base url.| If True it will prepend "www.example.com" to the href found in `ParsePage()` "/apartment1"
+    | `p_messageToTheBroker`    | Specified in `message.txt`    | "Hallo, ik zou deze te dure kast graag snel willen zien."     |
+    | `p_old_page_source`       | `GetPageSource()` output      | user_website_old_source where user_website_old_source = GetPageSource(...)     |
+    | `p_className`             | See previous step             | "list-item"       |
+    | `p_tag`                   | Tag of where teh href is      | "a"     |
    
 
 4. Run with `python3 main.py`
 
 5. Profit (???)
-  
