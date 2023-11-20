@@ -29,8 +29,6 @@ For example if your website has the properties listed as:
 
 ```
 <h1>List of Links</h1>
-```
-<h1>List of Links</h1>
 
 <ul>
     <li class="list-item"><a href="https://example.com/apartment1">Link 1</a></li>
@@ -38,22 +36,17 @@ For example if your website has the properties listed as:
     <li class="list-item"><a href="https://example.com/apartment3">Link 3</a></li>
 </ul>
 ```
-</ul>
-```
+
 
 you want to call 
 `GetPageSource("https://example.com/searchURL", "list-item")`
 
 or if `a` has a class:
 ```
-```
 <ul>
     <li class="list-item"><a class = "abc" href="https://example.com/apartment1">Link 1</a></li>
     <li class="list-item"><a class = "abc" href="https://example.com/apartment2">Link 2</a></li>
     <li class="list-item"><a class = "abc" href="https://example.com/apartment3">Link 3</a></li>
-</ul>
-```
-then `GetPageSource("https://example.com/searchURL", "abc")`
 </ul>
 ```
 then `GetPageSource("https://example.com/searchURL", "abc")`
