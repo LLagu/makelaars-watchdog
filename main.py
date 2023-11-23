@@ -48,7 +48,7 @@ def main():
     rotsvast_old_res = GetPageSource(rotsvast_url, rotsvast_class_name)
     househunting_old_res = GetPageSource(househunting_url, househunting_class_name)
     etd_wonen_old_res = GetPageSource(etd_url, etd_wonen_class_name)
-    tuitman_old_res = GetPageSource(tuitman_url, tuitman_class_name)
+    # tuitman_old_res = GetPageSource(tuitman_url, tuitman_class_name)
     vdmeulen_old_res = GetPageSource(vdmeulen_url, vdmeulen_class_name)   
     pandomo_old_res = GetPageSource(pandomo_url, pandomo_class_name)
     bens_old_res = GetPageSource(bens_url, bens_class_name)
@@ -60,9 +60,9 @@ def main():
         rotsvast_old_res = ParsePage(rotsvast_url, rotsvast_base_url, False, user_message, rotsvast_old_res, rotsvast_class_name, "a")
         househunting_old_res = ParsePage(househunting_url, househunting_base_url, False, user_message, househunting_old_res, househunting_class_name, "li")
         etd_wonen_old_res = ParsePage(etd_url, etd_base_url, False, user_message, etd_wonen_old_res, etd_wonen_class_name, "a")
-        tuitman_old_res = ParsePage(tuitman_url, tuitman_base_url, True,user_message, tuitman_old_res, tuitman_class_name, "a")
+        # tuitman_old_res = ParsePage(tuitman_url, tuitman_base_url, True,user_message, tuitman_old_res, tuitman_class_name, "a")
         vdmeulen_old_res = ParsePage(vdmeulen_url, vdmeulen_base_url, False, user_message, vdmeulen_old_res, vdmeulen_class_name, "a")
-        pandomo_old_res = ParsePage(pandomo_url, pandomo_base_url, True, user_message, pandomo_old_res, pandomo_class_name, "li")
+        # pandomo_old_res = ParsePage(pandomo_url, pandomo_base_url, True, user_message, pandomo_old_res, pandomo_class_name, "li")
         bens_old_res = ParsePage(bens_url, bens_base_url, False, user_message, bens_old_res, bens_class_name, "a")
 
 if __name__ == '__main__':

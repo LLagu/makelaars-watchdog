@@ -50,15 +50,23 @@ async def sendTelegramNotification(p_apartmentsList, p_extraMessage):
         await telegram_send.send(messages=[(p_extraMessage)])
 
 def extractHref(element):
-    if element:
+    if element and type(element) != int:
         try:
             return element["href"]
         except:
             anchor_tag = element.find('a')
-            if anchor_tag and 'href' in anchor_tag.attrs:
+            if anchor_tag and type(anchor_tag) != int and 'href' in anchor_tag.attrs:
                 return anchor_tag['href']
     else:
-        return "no href"
+        return ""
+    
+def makeHrefList(p_scrapedVacancies):
+    ret = []
+    for elem in p_scrapedVacancies:
+        href = extractHref(elem)
+        if href:
+            ret.append(href)
+    return ret
 
 def find_new_apartments(old_vacancies, updated_vacancies, p_baseURL, p_useBaseUrl):
     ret = []
@@ -70,14 +78,15 @@ def find_new_apartments(old_vacancies, updated_vacancies, p_baseURL, p_useBaseUr
     print("Checking top elements of ", p_baseURL)
     if old_vacancies and updated_vacancies:
         if p_useBaseUrl:
-            print("old = ", p_baseURL + extractHref(old_vacancies[0]))
-            print("new = ", p_baseURL+ extractHref(updated_vacancies[0]))
+            print("old = ", p_baseURL + old_vacancies[0])
+            print("new = ", p_baseURL+ updated_vacancies[0])
         else:
-            print("old = ", extractHref(old_vacancies[0]))
-            print("new = ",extractHref(updated_vacancies[0]))
+            print("old = ", old_vacancies[0])
+            print("new = ", updated_vacancies[0])
     else:
         print("No href found this time. Most likely the website didn't load correctly")
     print("-----------------------------------------------------")
+    
     new_apartments = set(updated_vacancies) - set(old_vacancies)
     
     for property in new_apartments:
@@ -108,7 +117,8 @@ def ParsePage(p_userUrl, p_baseUrl ,p_useBaseUrl, p_messageToTheBroker, p_old_pa
         current_res = soup.find_all(class_= p_className)
 
     if current_res:
-        
+        old_res = makeHrefList(old_res)
+        current_res = makeHrefList(current_res)
         new_apartments = find_new_apartments(old_res, current_res, p_baseUrl, p_useBaseUrl)
         if (not new_apartments):
             # loop = asyncio.get_event_loop()
