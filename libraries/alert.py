@@ -87,6 +87,9 @@ def find_new_apartments(old_vacancies, updated_vacancies, p_baseURL, p_useBaseUr
         print("No href found this time. Most likely the website didn't load correctly")
     print("-----------------------------------------------------")
     
+
+    old_vacancies = [item for item in old_vacancies if item]
+    updated_vacancies = [item for item in updated_vacancies if item]
     new_apartments = set(updated_vacancies) - set(old_vacancies)
     
     for property in new_apartments:
